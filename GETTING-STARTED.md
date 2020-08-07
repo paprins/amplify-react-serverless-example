@@ -300,10 +300,3 @@ import Amplify, { API } from 'aws-amplify';
 # Further Reading
 
 * [Customize Amplify Authentication UI](https://blog.kylegalbraith.com/2020/03/31/customizing-the-aws-amplify-authentication-ui-with-your-own-react-components/)
-
-```
-User: amplify-sls-example-user
-Access Key: AKIAR6L7THFPVRXN5NYZ
-Secret Access Key: FS5T45L77DCKkw4yc1iBPrP3+I428v7rSuxCuBG8
-Profile: amplify-sls-example
-```
