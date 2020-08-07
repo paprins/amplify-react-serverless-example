@@ -300,3 +300,4 @@ import Amplify, { API } from 'aws-amplify';
 # Further Reading
 
 * [Customize Amplify Authentication UI](https://blog.kylegalbraith.com/2020/03/31/customizing-the-aws-amplify-authentication-ui-with-your-own-react-components/)
+* [Build forms in React, without the tears](https://formik.org/)
