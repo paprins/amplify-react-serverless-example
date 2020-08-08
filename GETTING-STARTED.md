@@ -301,3 +301,6 @@ import Amplify, { API } from 'aws-amplify';
 
 * [Customize Amplify Authentication UI](https://blog.kylegalbraith.com/2020/03/31/customizing-the-aws-amplify-authentication-ui-with-your-own-react-components/)
 * [Build forms in React, without the tears](https://formik.org/)
+
+
+Using this to add `react-dropzone`: https://github.com/besharpsrl/serverless-day-fe
