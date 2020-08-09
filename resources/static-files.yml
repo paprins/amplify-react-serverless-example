@@ -1,0 +1,24 @@
+Resources:
+  StaticFilesBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: ${self:service.name}-${self:provider.stage}-files
+      CorsConfiguration:
+        CorsRules:
+          -
+            AllowedOrigins:
+              - '*'
+            AllowedHeaders:
+              - '*'
+            AllowedMethods:
+              - HEAD
+              - GET
+              - PUT
+              - POST
+            ExposedHeaders:
+              - ETag
+              - x-amz-meta-custom-header
+              - x-amz-id-2
+              - x-amz-request-id
+              - Authorization
+            MaxAge: 3000

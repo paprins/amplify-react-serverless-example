@@ -19,7 +19,6 @@ export default class Home extends Component {
      * @returns {Promise<void>}
      */
     async componentDidMount() {
-        console.log('>>> HELLO FROM Home.componentDidMount()')
         try {
             let session = await Auth.currentSession();
             let myUser = await Auth.currentAuthenticatedUser();

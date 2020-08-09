@@ -2,7 +2,7 @@
 export default {
   s3: {
       REGION: "eu-west-1",
-      BUCKET: "whatever-s3"
+      BUCKET: "ampl-sls-example-backend-dev-files"
   },
   apiGateway: {
       NAME: "mydoctransfer",

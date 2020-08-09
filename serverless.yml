@@ -42,6 +42,7 @@ functions:
           authorizer: aws_iam
 
 resources:
+  - ${file(resources/static-files.yml)}
   - ${file(resources/cognito-user-pool.yml)}
   - ${file(resources/cognito-identity-pool.yml)}
   - ${file(resources/api-gateway-errors.yml)}

@@ -1,8 +1,7 @@
 /* Import global components */
 import React from "react";
 import Dropzone from 'react-dropzone';
-import { Storage } from 'aws-amplify';
-import {Auth} from "aws-amplify/lib/index";
+import { Storage, Auth } from 'aws-amplify';
 import { ProgressBar } from 'react-bootstrap';
 /* Import css */
 import "./../css/DropZone.css";
@@ -68,8 +67,23 @@ export default class DropZoneArea extends React.Component {
         return (
             <section>
                 <div className="dropzone">
-                    <Dropzone onDrop={this.onDrop.bind(this)}>
-                        <p>Try dropping some files here, or click to select files to upload.</p>
+                    <Dropzone onDrop={this.onDrop.bind(this)} multiple={true} maxSize={800000000}>
+                    {/* <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)} multiple={true} maxSize={800000000}> */}
+                        {({getRootProps, getInputProps}) => (
+                            <div
+                                style={{
+                                    width: "300px",
+                                    height: "240px",
+                                    border: "1px solid lightgray",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                }} 
+                                {...getRootProps()}>
+                                <input {...getInputProps()} />
+                                <p>Drop files here, or click to select files</p>
+                            </div>
+                        )}
                     </Dropzone>
                 </div>
                 { this.state.showProgress && <div>Uploading...<br/><ProgressBar active now={this.state.fakePercentage} /></div> }

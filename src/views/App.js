@@ -5,8 +5,8 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
 import { Auth } from "aws-amplify";
 
 import Amplify from 'aws-amplify';
-import awsconfig from './../aws-exports';
-import { withAuthenticator } from 'aws-amplify-react';
+import amplify from "./../aws-exports-new";
+import { withAuthenticator } from '@aws-amplify/ui-react';
 
 /* Import css */
 import "./../css/App.css";
@@ -14,7 +14,7 @@ import "./../css/App.css";
 /* Import our component */
 import Routes from "./../Routes";
 
-Amplify.configure(awsconfig);
+Amplify.configure(amplify);
 
 /* App is the main file and we can define it as a bootstrap file*/
 class App extends Component {
@@ -133,3 +133,4 @@ class App extends Component {
 }
 
 export default withAuthenticator(App);
+// export default App;

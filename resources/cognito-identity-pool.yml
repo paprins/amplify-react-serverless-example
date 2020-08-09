@@ -46,6 +46,23 @@ Resources:
                   - 'cognito-identity:*'
                 Resource: '*'
 
+              - Effect: 'Allow'
+                Action:
+                  - s3:ListBucket
+                Resource:
+                  Fn::GetAtt: [StaticFilesBucket, Arn]
+
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetObject
+                Resource:
+                  Fn::Join:
+                    - ''
+                    -
+                      - Fn::GetAtt: [StaticFilesBucket, Arn]
+                      - '/*'
+
               # Allow users to invoke our API
               - Effect: 'Allow'
                 Action:
