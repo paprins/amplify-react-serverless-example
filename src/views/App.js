@@ -35,7 +35,6 @@ class App extends Component {
                 this.userHasAuthenticated(true);
 
                 let session = await Auth.currentUserPoolUser();
-                console.log(session);
                 this.setState({ isAdmin: (session.attributes.nickname === 'admin')});
             }
         }
@@ -54,7 +53,6 @@ class App extends Component {
      */
     userHasAuthenticated = authenticated => {
         this.setState({ isAuthenticated: authenticated });
-        console.log(authenticated);
     };
 
     /**

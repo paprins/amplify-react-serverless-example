@@ -45,6 +45,7 @@ export default class DropZoneArea extends React.Component {
         // Foreach file upload the file on S3
         files.forEach(function(file) {
             _this.setState({showProgress: true});
+            // Notice use of level=private
             Storage.put(session.accessToken.payload.sub+'/'+file.name, file, {
                 level: 'private',
                 contentType: 'application/octet-stream'
@@ -70,17 +71,11 @@ export default class DropZoneArea extends React.Component {
                     <Dropzone onDrop={this.onDrop.bind(this)} multiple={true} maxSize={800000000}>
                     {/* <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)} multiple={true} maxSize={800000000}> */}
                         {({getRootProps, getInputProps}) => (
-                            <div
-                                style={{
-                                    width: "300px",
-                                    height: "240px",
-                                    border: "1px solid lightgray",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                }} 
-                                {...getRootProps()}>
+                            <div 
+                                {...getRootProps()}
+                                className="drop-message">
                                 <input {...getInputProps()} />
+                                <div className="upload-icon"></div>
                                 <p>Drop files here, or click to select files</p>
                             </div>
                         )}

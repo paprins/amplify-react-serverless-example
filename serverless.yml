@@ -31,12 +31,30 @@ package:
     - src/**
     - yarn.lock
 
+  #   - http:
+  #     path: /
+  #     method: any
+  #     cors: true
+  #     authorizer: aws_iam
+  # - http:
+  #     path: /{proxy+}
+  #     method: any
+  #     cors: true
+  #     authorizer: aws_iam
+
+  # - http: ANY /
+  # - http: ANY {proxy+}
 functions:
   app:
     handler: wsgi_handler.handler
     events:
       - http:
-          path: /test
+          path: /
+          method: any
+          cors: true
+          authorizer: aws_iam
+      - http:
+          path: /{proxy+}
           method: any
           cors: true
           authorizer: aws_iam

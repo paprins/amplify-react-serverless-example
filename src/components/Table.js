@@ -2,7 +2,7 @@
 import React from "react";
 import MaterialIcon from 'material-icons-react';
 import ReactTable from "react-table";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import { OverlayTrigger, Tooltip, Button } from "react-bootstrap";
 import { API, Auth } from "aws-amplify";
 import Modal from 'react-modal';
 import Select from 'react-select';
@@ -266,6 +266,7 @@ export default class Table extends React.Component {
         };
 
         // Call the API and transform the result data
+        // API.get(apiName: any, path: any, init: any): Promise<any>
         API.get(apiName, path, myInit).then(response => {
             _this.setState({ data: transformData(response) });
             // If we have force resfresh we call recursively this function until the table

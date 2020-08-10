@@ -51,17 +51,47 @@ Resources:
                   - s3:ListBucket
                 Resource:
                   Fn::GetAtt: [StaticFilesBucket, Arn]
+                Condition:
+                  StringLike:
+                    s3:prefix:
+                      - "public/"
+                      - "public/*"
+                      - "protected/"
+                      - "protected/*"
+                      - Fn::Join:
+                          - ''
+                          -
+                            - 'private/$'
+                            - '{cognito-identity.amazonaws.com:sub}/'
+                      - Fn::Join:
+                          - ''
+                          -
+                            - 'private/$'
+                            - '{cognito-identity.amazonaws.com:sub}/*'
 
               - Effect: Allow
                 Action:
                   - s3:PutObject
                   - s3:GetObject
+                  - s3:DeleteObject
                 Resource:
-                  Fn::Join:
+                  - Fn::Join:
+                      - ''
+                      -
+                        - Fn::GetAtt: [StaticFilesBucket, Arn]
+                        - '/public/*'
+                  - Fn::Join:
                     - ''
                     -
                       - Fn::GetAtt: [StaticFilesBucket, Arn]
-                      - '/*'
+                      - '/protected/$'
+                      - '{cognito-identity.amazonaws.com:sub}/*'
+                  - Fn::Join:
+                    - ''
+                    -
+                      - Fn::GetAtt: [StaticFilesBucket, Arn]
+                      - '/private/$'
+                      - '{cognito-identity.amazonaws.com:sub}/*'
 
               # Allow users to invoke our API
               - Effect: 'Allow'

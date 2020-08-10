@@ -1,4 +1,30 @@
 /* Dropzone component's  style */
 .droplist-item { word-wrap: break-word; }
-.dropzone > div { padding: 15px; }
 .uploadedList { padding-left: 0px; }
+
+.dropzone > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 250px;
+  height: 200px;
+  border: 4px dashed #4aa1f3;
+}
+
+.upload-icon {
+  width: 50px;
+  height: 50px;
+  background: url(/images/upload.png) no-repeat center center; 
+  background-size: 100%;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.drop-message {
+  text-align: center;
+  color: #4aa1f3;
+  font-family: Arial;
+  font-size: 20px;
+}

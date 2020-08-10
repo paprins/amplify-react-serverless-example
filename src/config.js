@@ -1,4 +1,3 @@
-  
 export default {
   s3: {
       REGION: "eu-west-1",
